@@ -1,0 +1,13 @@
+
+<div id="home" class="fullscreen-hero bg-overlay bg-parallax" data-jarallax='{"speed": 0.2}' style="background: url('<%= asset_path 'test.png' %>') no-repeat; z-index: 300;">
+	<% if user_signed_in? %>
+	<a data-scroll class="nav-link" style="color: red !important;">Connecté</a>
+	<%= link_to "profil", destroy_user_session_path, method: :delete %>
+	<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+	<%else %>
+	<%=link_to "sign in", new_user_session_path %>
+	<%=link_to "sign up", new_user_registration_path %>
+	<%=link_to "test", new_home_path %>
+	<%end %>	
+</div>
+

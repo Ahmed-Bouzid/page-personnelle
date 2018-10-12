@@ -1,5 +1,5 @@
 
-<div id="home" class="fullscreen-hero bg-overlay bg-parallax" data-jarallax='{"speed": 0.2}' style="background: url('<%= asset_path 'test.png' %>') no-repeat; z-index: 300;">
+<div>
 	<% if user_signed_in? %>
 	<a data-scroll class="nav-link" style="color: red !important;">Connecté</a>
 	<%= link_to "profil", destroy_user_session_path, method: :delete %>

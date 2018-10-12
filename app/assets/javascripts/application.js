@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require js/plugins/plugins 
+//= require js/plugins/plugins.js
 //= require js/personal.custom
 //= require rails-ujs
 //= require activestorage

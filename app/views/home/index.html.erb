@@ -1,28 +1,446 @@
-<div id="black">
-	<nav id="nav" class="navbar navbar-expand-lg navbar-light bg-faded">
-
-		<div class="container" >
-
-			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarRestaurant" aria-controls="navbarRestaurant" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<a class="navbar-brand" href="index.html"></a>
-				<div  id="navbarRestaurant" class="navbar-collapse collapse" style="margin-bottom: 0.5%;">
-					<ul class="navbar-nav  ml-auto">
-						<li class="nav-item"><a><%= link_to "Home", root_path, class: "nav-link active"  %></a></li>
-						<li class="nav-item"><a><%= link_to "Test", new_home_path, class: "nav-link active"  %></a></li>
-						<% if user_signed_in? %>
-						<li class="nav-item" >
-							<a data-scroll class="nav-link" style="color: #db2e2e !important;">Connecté</a>
-						</li>
-						<li class="nav-item"><a><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link"  %></a></li>
-						<li class="nav-item"><a><%= link_to "Mon compte", user_path(current_user), class: "nav-link"  %></a></li>
-						<% else %>
-						<li class="nav-item"><a><%= link_to "Log in", new_user_session_path, class: "nav-link"  %></a></li>
-						<li class="nav-item"><a><%= link_to "Sign up", new_user_registration_path, class: "nav-link"  %></a></li>
-						<% end %>
-					</ul>   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Ahmed Personal Profile</title>    
+	<!-- Plugins CSS -->
+</head>
+<body data-spy="scroll" data-offset="47" data-target="#navbarOffcanvas">
+	<!-- Pushy Menu -->
+	<aside class="pushy pushy-right">
+		<div class="clearfix">
+			<a href="javascript:void(0)" class="pushy-link pushy-close"><i class="ti-close"></i></a>
+		</div>
+		<div  id="navbarOffcanvas" class="clearfix">
+			<ul class="offcanvas-menu">
+				<li><a href="#home" data-scroll class="dropdown-item pushy-link">Home</a></li>
+				<% if user_signed_in? %>
+				<li><a data-scroll class="dropdown-item pushy-link" style="color: #db2e2e !important;">Connecté</a></li>
+				<li><a class="dropdown-item pushy-link" href="<%= link_to "Sign out", destroy_user_session_path, method: :delete %>">Sign out</a></li>
+				<li><a class="dropdown-item pushy-link" href="<%= user_path(current_user) %>">Mon compte</a></li>
+				<% else %>
+				<li><a class="dropdown-item pushy-link" href="<%= new_user_session_path %>">Log in</a></li>
+				<li><a class="dropdown-item pushy-link" href="<%= new_user_registration_path %>">Sign up</a></li>
+				<% end %>
+			</ul>  
+		</div>
+		<div class="sidebar-contact">
+			<h5 class="font700">Phone</h5>
+			<p class="lead"><a href="#">07.82.58.51.34</a></p>
+			<h5 class="font700">Email</h5>
+			<p class="lead"><a href="#">ahmahm@hotmail.co.jp</a></p>
+		</div>
+	</aside>
+	<!-- Site Overlay -->
+	<div class="site-overlay"></div>
+	<nav class="navbar-offcanvas">
+		<a href="javascript:void(0)" class="menu-btn"><i class="ti-menu"></i></a>
+	</nav>
+	<div id="home" class="fullscreen-hero bg-overlay bg-parallax" data-jarallax='{"speed": 0.3}' style="background: url('<%= asset_path 'front.jpg' %>') no-repeat;">
+		<div class="hero-content">
+			<div class="hero-inner">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="typed-wrapper">
+								<h5 class="font700 mb20 text-white">Bonjour ! Je suis</h5>
+								<span class="typed"></span>
+							</div>
+							<p class="text-white-gray mb30">
+								De retour en France après 2 sejours professionels au Japon et en Australie, je suis a votre disposition en tant que Developpeur Web Ruby on Rails pour des projets individuels ou en groupe de travail pour réaliser : <br>
+								✔ Une MVP <br>
+								✔ La refonte de site <br>
+								✔ Une boutique en ligne <br>
+								✔ Un site vitrine pour votre activité <br>
+							</p>
+							<div class="social-buttons">
+								<a href="https://fr.linkedin.com/in/ahmed-bouzid"" class="social-icon si-dark si-linkedin">
+									<i class="fa fa-linkedin"></i>
+									<i class="fa fa-linkedin"></i>
+								</a>
+								<a href="https://www.instagram.com/waraibeatbox/" class="social-icon si-dark si-instagram">
+									<i class="fa fa-instagram"></i>
+									<i class="fa fa-instagram"></i>
+								</a>
+								<a href="https://github.com/ahmed-bouzid" class="social-icon si-dark si-github">
+									<i class="fa fa-github"></i>
+									<i class="fa fa-github"></i>
+								</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</nav>
+		</div>
+	</div><!--home-->
+	<div class="container pt50 pb20" id="aboutme">
+		<div class="row align-items-center">
+			<div class='col-lg-6 mb30'>
+				<%=image_tag("test.png", alt: "Stratton", class: "img-fluid")%>
+			</div>
+			<div class="col-lg-6 mb30">
+				<h5 class="font700">Hello! Welcome to my personal website</h5>
+				<h3 class="font400 h4">I'm 31 years old full stack developer & designer from <span class="font400 text-primary">Marseille, FRANCE.</span></h3>
+				<p>
+					Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+				</p>
+				<div class="progress-label clearfix">
+					<span class="progress-title">
+						Ruby on Rails
+					</span>
+					<span class="progress-value float-right">
+						75%
+					</span>
+				</div><!--label-->
+				<div class="progress progress-default">
+
+					<div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+
+				<div class="progress-label clearfix">
+					<span class="progress-title">
+						Ruby
+					</span>
+					<span class="progress-value float-right">
+						75%
+					</span>
+				</div><!--label-->
+				<div class="progress progress-default">
+
+					<div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+
+				<div class="progress-label clearfix">
+					<span class="progress-title">
+						HTML5
+					</span>
+					<span class="progress-value float-right">
+						90%
+					</span>
+				</div><!--label-->
+				<div class="progress progress-default">
+					<div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+				<div class="progress-label clearfix">
+					<span class="progress-title">
+						CSS3
+					</span>
+					<span class="progress-value float-right">
+						85%
+					</span>
+				</div><!--label-->
+				<div class="progress progress-default">
+					<div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+				<div class="progress-label clearfix">
+					<span class="progress-title">
+						JavaScript
+					</span>
+					<span class="progress-value float-right">
+						70%
+					</span>
+				</div><!--label-->
+				<div class="progress progress-default">
+
+					<div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+				</div>
+			</div>
+
+		</div>
 	</div>
+	<div class="bg-dark pt50 pb10">
+		<div class="container">
+
+			<div class="row align-items-center">
+
+				<div class="col-lg-6 mb40 mr-auto ml-auto">
+					<h3 class="text-white font300 h2 mb20">Full stack & self developer</h3>
+					<p class="lead text-white-gray mb50">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, nisi, laborum autem reprehenderit excepturi harum ipsum quod sit.
+					</p>
+					<a class="bg-white card-plugins border-primary wow fadeInUp" data-wow-delay=".1s" target="_blank" href="https://stackoverflow.com/">
+						<h5 class="font400">Full Stack <strong>Developer</strong> </h5>
+						<p class="text-muted">
+							World’s largest developer community.
+						</p>
+						<p class="text-muted">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, nisi, laborum autem reprehenderit excepturi harum ipsum quod sit.
+						</p>
+					</a>
+					<a class="bg-white card-plugins border-primary wow fadeInUp" data-wow-delay=".2s" target="_blank" href="https://free.nkdev.info/jarallax/">
+						<span class="badge text-white bg-danger float-right">Hot</span>
+						<h5 class="font700">jarallax</h5>
+
+						<p class="text-muted">
+							Smooth parallax scrolling effect for background images using CSS transforms with graceful degradation for old browsers.
+						</p>
+					</a>
+					<a class="bg-white card-plugins border-primary wow fadeInUp" data-wow-delay=".3s" target="_blank" href="http://getbootstrap.com/">
+						<h5 class="font700">Bootstrap front end developer</h5>
+						<p class="text-muted">
+							Build responsive, mobile-first projects on the web with the world's most popular front-end component library.
+						</p>
+					</a>
+				</div>                    
+			</div>
+		</div>
+	</div>
+
+	<div class="pt50 pb20" id="portfolio">
+		<div class="container">
+			<h3 class="text-center font700 text-uppercase h3 mb60">Recent Projects</h3>
+
+			<div class="row">
+				<div class="col-md-4 mb30">
+					<a href="javascript:void(0)" class="folio-card">
+						<img src="images/img2.jpg" alt="" class="img-fluid">
+						<div class="folio-overlay">
+							<div class="folio-content">
+								<h4>Project Title</h4>
+								<p>Lorem ipsum dolor</p>
+							</div>
+						</div>
+					</a>
+				</div><!--/col-->
+				<div class="col-md-4 mb30">
+					<a href="http://jet-production.herokuapp.com/" class="folio-card">
+						<%=image_tag("jet.png", alt: "Stratton", class: "img-fluid")%>
+						<div class="folio-overlay">
+							<div class="folio-content">
+								<h4>Stratton</h4>
+								<p>Site de reservation de Jets Privés</p>
+							</div>
+						</div>
+					</a>
+				</div><!--/col-->
+				<div class="col-md-4 mb30">
+					<a href="javascript:void(0)" class="folio-card">
+						<img src="images/img3.jpg" alt="" class="img-fluid">
+						<div class="folio-overlay">
+							<div class="folio-content">
+								<h4>Project Title</h4>
+								<p>Lorem ipsum dolor</p>
+							</div>
+						</div>
+					</a>
+				</div><!--/col-->
+				<div class="col-md-4 mb30">
+					<a href="javascript:void(0)" class="folio-card">
+						<img src="images/img4.jpg" alt="" class="img-fluid">
+						<div class="folio-overlay">
+							<div class="folio-content">
+								<h4>Project Title</h4>
+								<p>Lorem ipsum dolor</p>
+							</div>
+						</div>
+					</a>
+				</div><!--/col-->
+				<div class="col-md-4 mb30">
+					<a href="javascript:void(0)" class="folio-card">
+						<img src="images/img5.jpg" alt="" class="img-fluid">
+						<div class="folio-overlay">
+							<div class="folio-content">
+								<h4>Project Title</h4>
+								<p>Lorem ipsum dolor</p>
+							</div>
+						</div>
+					</a>
+				</div><!--/col-->
+				<div class="col-md-4 mb30">
+					<a href="javascript:void(0)" class="folio-card">
+						<img src="images/img6.jpg" alt="" class="img-fluid">
+						<div class="folio-overlay">
+							<div class="folio-content">
+								<h4>Project Title</h4>
+								<p>Lorem ipsum dolor</p>
+							</div>
+						</div>
+					</a>
+				</div><!--/col-->
+			</div>
+		</div>
+	</div>
+
+	<div class='bg-faded pt50 pb20' id='services'>
+		<div class='container'>
+			<h3 class="text-center font700 text-uppercase h3 mb60">Ce que je propose</h3>
+
+			<div class='row'>
+				<div class='col-md-4 mb30 wow fadeInUp' data-wow-delay='.1s'>
+					<div class='icon-card clearfix'>
+						<i class='ti-palette'></i>
+						<div class='overflow-hidden'>
+							<h4>Web design</h4>
+							<p>
+								Une mise en forme pour votre site web, avec un design qui respectera l'equilibre, la cohérence des couleurs et une hierachisation des informations, qui le rendra percutant et efficace.
+							</p>
+						</div>
+					</div>
+				</div><!--/col-->
+				<div class='col-md-4 mb30 wow fadeInUp' data-wow-delay='.2s'>
+					<div class='icon-card clearfix'>
+						<i class='ti-dashboard'></i>
+						<div class='overflow-hidden'>
+							<h4>Web Developing</h4>
+							<p>
+								La creation d'un site web selon vos besoins tel qu'une boutique en ligne, un site vitrine ou institutionnel, une application web ou encore une plateforme d'échange, de partage et de services etc.
+							</p>
+						</div>
+					</div>
+				</div><!--/col-->
+				<div class='col-md-4 mb30 wow fadeInUp' data-wow-delay='.3s'>
+					<div class='icon-card clearfix'>
+						<i class='ti-briefcase'></i>
+						<div class='overflow-hidden'>
+							<h4>Marketing</h4>
+							<p>
+								La realisation d'une MVP, basé sur un développement réduit et une focalisation sur l’aspect concret pour une estimation du marché. 
+								L'ideal pour tester votre idée de startup et constituer une base de futurs clients.
+							</p>
+						</div>
+					</div>
+				</div><!--/col-->
+				<div class='col-md-4 mb30 wow fadeInUp' data-wow-delay='.4s'>
+					<div class='icon-card clearfix'>
+						<i class='ti-camera'></i>
+						<div class='overflow-hidden'>
+							<h4>Photographie</h4>
+							<p>
+								Afin d'optimiser le referencement de votre site web ainsi que son rendu, des photos de haute qualité illustreront vos idées et vos propos et permettront ainsi d'attirer le regard de vos futurs clients.
+							</p>
+						</div>
+					</div>
+				</div><!--/col-->
+				<div class='col-md-4 mb30 wow fadeInUp' data-wow-delay='.5s'>
+					<div class='icon-card clearfix'>
+						<i class='ti-shift-left-alt'></i>
+						<div class='overflow-hidden'>
+							<h4>Html / Css / JavaScript</h4>
+							<p>
+								L'utilisation de langages informatiques appropriés pour repondre à des besoins spécifiques quels qu'ils soient.
+							</p>
+						</div>
+					</div>
+				</div><!--/col-->
+				<div class='col-md-4 mb30 wow fadeInUp' data-wow-delay='.6s'>
+					<div class='icon-card clearfix'>
+						<i class='ti-headphone'></i>
+						<div class='overflow-hidden'>
+							<h4>Support 7jr/7</h4>
+							<p>
+								Un support client téléphonique disponible 7 jours sur 7, pour répondre à vos questions, vous suggerer les meilleures solutions et vous accompagner tout au long de votre projet.
+							</p>
+						</div>
+					</div>
+				</div><!--/col-->
+			</div>
+		</div>
+	</div>
+	<!-- <div class='bg-dark pt50 pb30'>
+		<div class='container'>
+			<div class='row'>
+				<div class='col-md-4 ml-auto mb20'>
+					<h3 class='h2 text-white mb0'> Travaillons ensemble</h3>
+				</div>
+				<div class='col-md-3 mr-auto mb20 text-right'>
+					<a href='#' class='btn btn-primary btn-lg'></a>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<div class="pt50 pb50" id="contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 mr-auto ml-auto text-center clearfix">
+					<h3 class="text-center font700 text-uppercase h3 mb0">Me contacter</h3>
+					<p class="mb50">N'hesitez pas a m'envoyer un message :</p>
+				</div>
+			</div>
+			<div class="row mb40">
+				<div class="col-lg-3 text-center ml-auto mb30">
+					<div class="icon-card clearfix">
+						<i class="ti-home"></i>
+						<div class="overflow-hidden">
+							<h4>Adresse</h4>
+							<p>
+								97 rue Breteuil, 13006, Marseille
+							</p>
+						</div>
+					</div>
+				</div><!--/col-->
+				<div class="col-lg-3 text-center mb30">
+					<div class="icon-card clearfix">
+						<i class="ti-email"></i>
+						<div class="overflow-hidden">
+							<h4>Email</h4>
+							<p>
+								ahmahm@hotmail.co.jp
+							</p>
+						</div>
+					</div>
+				</div><!--/col-->
+				<div class="col-lg-3 text-center mr-auto mb30">
+					<div class="icon-card clearfix">
+						<i class="fa fa-phone"></i>
+						<div class="overflow-hidden">
+							<h4>Phone</h4>
+							<p>
+								07.82.58.51.34
+							</p>
+						</div>
+					</div>
+				</div><!--/col-->
+			</div>
+			<div class="row">
+				<div class="col-lg-8 mr-auto ml-auto">
+					<form role="form">
+						<div class="row">
+							<div class="col-md-6">
+								<input type="text" class="form-control mb20" placeholder="Nom" required="">
+							</div>
+							<div class="col-md-6">
+								<input type="email" class="form-control mb20" placeholder="Email" required="">
+							</div>
+							<div class="col-md-12">
+								<textarea class="form-control mb20" rows="5" placeholder="Message"></textarea>
+							</div>
+							<div class="col-md-12 text-center">
+								<button type="submit" class="btn btn-primary btn-lg">Envoyer</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="footer pt90 bg-faded pb90">
+		<div class="container text-center">
+			<div class="list-inline mb30 clearfix">
+				<a href="https://fr.linkedin.com/in/ahmed-bouzid" class="social-icon si-gray si-facebook si-gray-round">
+					<i class="fa fa-linkedin"></i>
+					<i class="fa fa-linkedin"></i>
+				</a>
+				<a href="https://www.instagram.com/waraibeatbox/" class="social-icon si-gray si-twitter si-gray-round">
+					<i class="fa fa-instagram"></i>
+					<i class="fa fa-instagram"></i>
+				</a>
+				<a href="https://github.com/waraibeatbox" class="social-icon si-gray si-g-plus si-gray-round">
+					<i class="fa fa-github"></i>
+					<i class="fa fa-github"></i>
+				</a>
+			</div>
+		</div>
+
+		<script>
+			!function(a){function b(){g.hasClass(k)?h.toggleClass(l):h.toggleClass(m),q&&g.one("transitionend",function(){q.focus()})}function c(){g.hasClass(k)?h.removeClass(l):h.removeClass(m)}function d(){g.hasClass(k)?(h.addClass(l),g.animate({left:"0px"},r),i.animate({left:s},r),j.animate({left:s},r)):(h.addClass(m),g.animate({right:"0px"},r),i.animate({right:s},r),j.animate({right:s},r)),q&&q.focus()}function e(){g.hasClass(k)?(h.removeClass(l),g.animate({left:"-"+s},r),i.animate({left:"0px"},r),j.animate({left:"0px"},r)):(h.removeClass(m),g.animate({right:"-"+s},r),i.animate({right:"0px"},r),j.animate({right:"0px"},r))}function f(){a(t).addClass(v),a(t).on("click",function(){var b=a(this);b.hasClass(v)?(a(t).addClass(v).removeClass(u),b.removeClass(v).addClass(u)):b.addClass(v).removeClass(u)})}var g=a(".pushy"),h=a("body"),i=a("#container"),j=a(".push"),k="pushy-left",l="pushy-open-left",m="pushy-open-right",n=a(".site-overlay"),o=a(".menu-btn, .pushy-link"),p=a(".menu-btn"),q=a(g.data("focus")),r=200,s=g.width()+"px",t=".pushy-submenu",u="pushy-submenu-open",v="pushy-submenu-closed";a(t);a(document).keyup(function(a){27==a.keyCode&&(h.hasClass(l)||h.hasClass(m))&&(w?c():(e(),x=!1),p&&p.focus())});var w=function(){var a=document.createElement("p"),b=!1,c={webkitTransform:"-webkit-transform",OTransform:"-o-transform",msTransform:"-ms-transform",MozTransform:"-moz-transform",transform:"transform"};if(null!==document.body){document.body.insertBefore(a,null);for(var d in c)void 0!==a.style[d]&&(a.style[d]="translate3d(1px,1px,1px)",b=window.getComputedStyle(a).getPropertyValue(c[d]));return document.body.removeChild(a),void 0!==b&&b.length>0&&"none"!==b}return!1}();if(w)f(),o.on("click",function(){b()}),n.on("click",function(){b()});else{h.addClass("no-csstransforms3d"),g.hasClass(k)?g.css({left:"-"+s}):g.css({right:"-"+s}),i.css({"overflow-x":"hidden"});var x=!1;f(),o.on("click",function(){x?(e(),x=!1):(d(),x=!0)}),n.on("click",function(){x?(e(),x=!1):(d(),x=!0)})}}(jQuery);
+		</script>
+
+	</footer>
+	<!--back to top-->
+	<a href="#" class="back-to-top hidden-xs-down" id="back-to-top"><i class="ti-angle-up"></i></a>
+	<!-- jQuery first, then Tether, then Bootstrap JS. -->
+</body>
+</html>
